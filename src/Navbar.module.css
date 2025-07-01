@@ -3,66 +3,62 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24px;
-  height: 64px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 0 16px;
+  height: 60px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-size: 1.4rem;
+  font-weight: 600;
   color: var(--text);
-  animation: fadeInLeft 0.6s ease;
 }
 
 .logo img {
-  height: 40px;
-  width: 40px;
+  height: 34px;
   margin-right: 10px;
   border-radius: 50%;
-  object-fit: cover;
 }
 
+/* Navigation Links */
 .navLinks {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .link {
   font-size: 1rem;
-  padding: 8px 14px;
-  border-radius: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
   color: var(--text);
-  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .link:hover {
   background-color: var(--hover);
-  transform: translateY(-1px);
 }
 
+/* Toggle Button */
 .toggleButton {
   background-color: transparent;
   border: 1px solid var(--border);
   color: var(--text);
-  padding: 6px 12px;
+  padding: 6px 10px;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .toggleButton:hover {
   background-color: var(--hover);
-  transform: scale(1.05);
 }
 
+/* Profile Menu */
 .profile {
   position: relative;
 }
@@ -70,42 +66,55 @@
 .profileIcon {
   background-color: var(--text);
   color: #fff;
-  padding: 6px 14px;
+  padding: 6px 12px;
   border-radius: 20px;
   cursor: pointer;
   font-size: 0.9rem;
-  transition: background-color 0.3s ease;
-}
-
-.profileIcon:hover {
-  background-color: #388e3c;
 }
 
 .dropdown {
   position: absolute;
-  top: 50px;
+  top: 48px;
   right: 0;
   background-color: var(--nav-bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-  overflow: hidden;
-  animation: dropdownFade 0.3s ease;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  min-width: 140px;
 }
 
 .dropdownItem {
-  padding: 12px 16px;
+  padding: 10px 14px;
   cursor: pointer;
-  font-size: 0.95rem;
-  transition: background-color 0.25s ease;
+  transition: background-color 0.2s ease;
 }
 
 .dropdownItem:hover {
   background-color: var(--hover);
 }
 
-/* Animations */
-@keyframes dropdownFade {
+/* Hamburger Menu (Mobile) */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text);
+  background: none;
+  border: none;
+}
+
+/* Mobile Navigation */
+.mobileMenu {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--nav-bg);
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
   from {
     opacity: 0;
     transform: translateY(-10px);
@@ -116,32 +125,26 @@
   }
 }
 
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
+/* Responsive Rules */
+@media screen and (max-width: 768px) {
   .navLinks {
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    padding: 8px 0;
+    display: none;
   }
 
-  .link {
-    font-size: 0.95rem;
-    padding: 6px 10px;
+  .hamburger {
+    display: block;
   }
 
-  .profileIcon {
-    padding: 6px 10px;
+  .mobileMenu {
+    display: flex;
+  }
+
+  .mobileMenu .link {
+    padding: 10px 16px;
+  }
+
+  .mobileMenu .profile {
+    align-self: flex-end;
+    margin-right: 16px;
   }
 }
