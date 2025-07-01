@@ -1,0 +1,123 @@
+.homeContainer {
+  padding: 20px;
+  background-color: var(--bg);
+  color: var(--text);
+}
+.heroSection {
+  text-align: center;
+  padding: 25px 15px; /* reduced from 40px 20px */
+  background: linear-gradient(to right, #a8e063, #56ab2f);
+  border-radius: 12px;
+  color: white;
+}
+
+.heroSection h1 {
+  font-size: 2rem; /* reduced from 2.5rem */
+  margin-bottom: 8px;
+}
+
+.heroSection p {
+  font-size: 1rem; /* reduced from 1.2rem */
+}
+.featuresSection {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.featureCard {
+  background-color: var(--nav-bg);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+  flex: 1 1 250px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: scale(1.05);
+  background-color: var(--hover);
+}
+
+.statsSection {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.statsGrid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.statBox {
+  background-color: var(--nav-bg);
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 150px;
+  transition: background-color 0.3s ease;
+}
+
+.counter {
+  font-size: 2rem;
+  color: #2e7d32;
+  margin: 0;
+}
+
+.statBox p {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+.leaderboardSection {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.leaderboard {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.leaderboard li {
+  background-color: var(--nav-bg);
+  margin: 10px auto;
+  padding: 12px 20px;
+  max-width: 400px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.leaderboard li:hover {
+  background-color: var(--hover);
+}
+
+.infoSection,
+.testimonialSection,
+.comingSoon {
+  text-align: center;
+  margin: 40px 0;
+  padding: 20px;
+}
+
+.testimonial {
+  background-color: var(--nav-bg);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 60px;
+  padding: 20px;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+}
