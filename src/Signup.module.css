@@ -5,17 +5,23 @@
   align-items: center;
   background: linear-gradient(to left, #d4fc79, #96e6a1);
   font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
 }
 
 .card {
   background: #ffffff;
   padding: 40px 50px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
   text-align: center;
   width: 100%;
-  max-width: 450px;
-  animation: slideIn 0.6s ease;
+  max-width: 460px;
+  animation: slideIn 0.6s ease, fadePop 0.6s ease;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.01);
 }
 
 .logo {
@@ -26,6 +32,7 @@
 h2 {
   color: #4caf50;
   margin-bottom: 25px;
+  font-size: 1.8rem;
 }
 
 input {
@@ -33,14 +40,14 @@ input {
   padding: 14px;
   margin: 10px 0 18px;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 15px;
   transition: all 0.3s;
 }
 
 input:focus {
   border-color: #4caf50;
-  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.4);
   outline: none;
 }
 
@@ -50,15 +57,16 @@ button {
   background: #4caf50;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 16px;
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
   background: #43a047;
+  transform: scale(1.02);
 }
 
 p {
@@ -73,13 +81,42 @@ p:hover {
   color: #4caf50;
 }
 
+/* Animations */
 @keyframes slideIn {
   from {
+    transform: translateY(-20px);
     opacity: 0;
-    transform: translateY(-15px);
   }
   to {
-    opacity: 1;
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadePop {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .card {
+    padding: 30px 25px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  input,
+  button {
+    font-size: 14px;
+    padding: 12px;
   }
 }
