@@ -3,32 +3,35 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Signup.module.css";
 import logo from "./assets/logo.png";
 
-const Signup: React.FC = () => {
+interface SignupProps {
+  toggleTheme: () => void;
+}
+
+const Signup: React.FC<SignupProps> = ({ toggleTheme }) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
   const navigate = useNavigate();
 
   const handleSignup = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !phone || !password || !confirmPassword) {
-      alert("All fields are required");
+    if (password !== confirm) {
+      alert("Passwords do not match.");
       return;
     }
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
-    alert("Signup successful! Please login.");
+    // Save user logic can be added here
     navigate("/login");
   };
 
   return (
     <div className={styles.container}>
+      <div className={styles.themeToggle}>
+        <button onClick={toggleTheme}>🌓</button>
+      </div>
       <div className={styles.card}>
-        <img src={logo} alt="AgriGenius" className={styles.logo} />
-        <h2>Sign Up</h2>
+        <img src={logo} alt="AgriGenius Logo" className={styles.logo} />
+        <h2>Create AgriGenius Account</h2>
         <form onSubmit={handleSignup}>
           <input
             type="text"
@@ -54,8 +57,8 @@ const Signup: React.FC = () => {
           <input
             type="password"
             placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            value={confirm}
+            onChange={(e) => setConfirm(e.target.value)}
             required
           />
           <button type="submit">Sign Up</button>

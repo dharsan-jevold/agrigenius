@@ -61,8 +61,8 @@ const App: React.FC = () => {
           path="/help"
           element={isLoggedIn ? <Help /> : <Navigate to="/login" />}
         />
-        <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} toggleTheme={toggleTheme} />} />
+        <Route path="/signup" element={<Signup toggleTheme={toggleTheme} />} />
       </Routes>
     </Router>
   );

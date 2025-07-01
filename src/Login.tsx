@@ -5,9 +5,10 @@ import logo from "./assets/logo.png";
 
 interface LoginProps {
   setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  toggleTheme: () => void;
 }
 
-const Login: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
+const Login: React.FC<LoginProps> = ({ setIsLoggedIn, toggleTheme }) => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -25,6 +26,9 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.themeToggle}>
+        <button onClick={toggleTheme}>🌓</button>
+      </div>
       <div className={styles.card}>
         <img src={logo} alt="AgriGenius" className={styles.logo} />
         <h2>Login</h2>
